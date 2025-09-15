@@ -11,4 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Step 1 of Job 2
-        run: echo "Echo Goodbye from step1 of job2"
+        run : |
+          echo "I am"
+          echo "a multi-line"
+          echo "script."
