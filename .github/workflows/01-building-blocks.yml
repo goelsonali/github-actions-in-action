@@ -1,0 +1,14 @@
+name: building-blocks
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  echo-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 of Job 1
+        run: echo "Echo HEllo from step1 of job1"
+  echo-goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 of Job 2
+        run: echo "Echo Goodbye from step1 of job2"
