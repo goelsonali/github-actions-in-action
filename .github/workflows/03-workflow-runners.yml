@@ -1,5 +1,5 @@
 name: 03-workflow-runners
-on: [pull_request, workflow-dispatch]
+on: [pull_request, workflow_dispatch]
 
 jobs:
   workflow-runner-job1:
