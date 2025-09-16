@@ -1,0 +1,14 @@
+name: 03-workflow-runners
+on: [pull_request, workflow-dispatch]
+
+jobs:
+  workflow-runner-job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Runner ${{ github.runner.name }}
+        run: echo "Running on the runner ${{ github.runner.name }}"
+  workflow-runner-job2:
+    runs-on: windows-latest
+    steps:
+      - name: Runner ${{ github.runner.name }}
+        run: echo "Running on the runner ${{ github.runner.name }}"
