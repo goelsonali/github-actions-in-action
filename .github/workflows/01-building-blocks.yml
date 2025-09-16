@@ -1,5 +1,5 @@
-name: building-blocks
-on: [push, pull_request, workflow_dispatch]
+name: 01-building-blocks
+on: [pull_request, workflow_dispatch]
 
 jobs:
   echo-hello:
