@@ -6,9 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Runner Ubuntu
-        run: echo "Running on the runner Ubuntu"
+        run: |
+          echo "Running on the runner Ubuntu"
+          echo "Runner OS: $RUNNER_OS"
+
   workflow-runner-job2:
     runs-on: windows-latest
     steps:
       - name: Runner Windows
-        run: echo "Running on the runner windows"
+        shell: bash
+        run: |
+          echo "Running on the runner windows"
+          echo "Runner OS: $RUNNER_OS"
