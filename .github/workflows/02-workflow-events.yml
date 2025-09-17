@@ -1,6 +1,6 @@
 name: 02-workflow-events
 on:
-  pull_request:
+  workflow_dispatch: # Manually triggered workflows
     #schedule: # Runs at 00:00 on the first day of every month
    # - cron: '35 20 * * 2'
 

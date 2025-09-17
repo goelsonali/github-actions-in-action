@@ -1,14 +1,20 @@
 name: 03-workflow-runners
-on: [pull_request, workflow_dispatch]
+on: [workflow_dispatch]
 
 jobs:
   workflow-runner-job1:
     runs-on: ubuntu-latest
     steps:
       - name: Runner Ubuntu
-        run: echo "Running on the runner Ubuntu"
+        run: |
+          echo "Running on the runner Ubuntu"
+          echo "Runner OS: $RUNNER_OS"
+
   workflow-runner-job2:
     runs-on: windows-latest
     steps:
       - name: Runner Windows
-        run: echo "Running on the runner windows"
+        shell: bash
+        run: |
+          echo "Running on the runner windows"
+          echo "Runner OS: $RUNNER_OS"
