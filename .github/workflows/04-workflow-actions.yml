@@ -2,13 +2,10 @@ name: 04-workflow-actions.yml
 on: [pull_request, workflow_dispatch]
 
 jobs:
-  use-github-actions:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '21'
+      - name: Checkout code
+        uses: actions/checkout@v5
+      - name: Folder structure
+        run: ls -R
