@@ -1,10 +1,10 @@
 name: Event-filters-activity
-on:
-  pull_request:
-    # event activity is defined by field types
-    types: [opened, synchronize]
-    branches:
-      - main
+on: workflow_dispatch
+#  pull_request:
+#    # event activity is defined by field types
+#    types: [opened, synchronize]
+#    branches:
+#      - main
 
 jobs:
   print-message:
