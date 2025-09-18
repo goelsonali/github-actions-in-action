@@ -1,0 +1,17 @@
+name: Event-filters-activity
+on: workflow_dispatch
+#  pull_request:
+#    # event activity is defined by field types
+#    types: [opened, synchronize]
+#    branches:
+#      - main
+
+jobs:
+  print-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Workflow Message
+        run: echo "This workflow is triggered on pull request events - opened and synchronize"
+      - name: OS Message
+        run: |
+          echo "Message from the OS: $RUNNER_OS"
