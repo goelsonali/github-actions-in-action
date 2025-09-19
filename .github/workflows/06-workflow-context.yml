@@ -1,0 +1,13 @@
+name: Workflow context
+on: push
+
+jobs:
+  display-context-information:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Info
+        run: |
+          echo "Event name: ${{ github.event_name }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "SHA: ${{ github.sha }}"
+          echo "Actor: ${{ github.actor }}"
