@@ -1,5 +1,5 @@
 name: Workflow context
-on: push
+on: workflow_dispatch
 
 jobs:
   display-context-information:
