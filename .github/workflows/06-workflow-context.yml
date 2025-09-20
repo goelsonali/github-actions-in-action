@@ -1,9 +1,24 @@
 name: Workflow context
-on: push
+run-name: Context in DEBUG ${{ inputs.debug }}
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      debug:
+        description: 'Debug mode'
+        type: boolean
+        required: false
+        default: false
+
+env:
+  WORKFLOW_ACTION_ENV_VAR: "Workflow env value"
 
 jobs:
   display-context-information:
     runs-on: ubuntu-latest
+    env:
+      JOB_ACTION_ENV_VAR: "Job env value"
     steps:
       - name: Display Info
         run: |
@@ -11,6 +26,13 @@ jobs:
           echo "Ref: ${{ github.ref }}"
           echo "SHA: ${{ github.sha }}"
           echo "Actor: ${{ github.actor }}"
-      - name: Retrieve variables
+      - name: Display Repository variables
         run: |
           echo "Retrieving variables from repository env vars ${{ vars.ACTION_ENV_VAR }}"
+      - name: Display Variables - workflow, job, step
+        env:
+          STEP_ACTION_ENV_VAR: "STEP env value"
+        run: |
+          echo "Retrieving variables from workflow env vars $WORKFLOW_ACTION_ENV_VAR"
+          echo "Retrieving variables from job env vars $JOB_ACTION_ENV_VAR"
+          echo "Retrieving variables from step env vars $STEP_ACTION_ENV_VAR"
