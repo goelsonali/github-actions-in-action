@@ -1,5 +1,5 @@
 name: Workflow context
-on: workflow_dispatch
+on: push
 
 jobs:
   display-context-information:
@@ -11,3 +11,6 @@ jobs:
           echo "Ref: ${{ github.ref }}"
           echo "SHA: ${{ github.sha }}"
           echo "Actor: ${{ github.actor }}"
+      - name: Retrieve variables
+        run: |
+          echo "Retrieving variables from repository env vars ${{ vars.ACTION_ENV_VAR }}"
