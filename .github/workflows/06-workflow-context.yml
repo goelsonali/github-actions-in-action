@@ -29,11 +29,11 @@ jobs:
           echo "Actor: ${{ github.actor }}"
       - name: Display Repository variables
         run: |
-          echo "${{ COMMON_DISPLAY_MESSAGE }} repository - ${{ vars.ACTION_ENV_VAR }}"
+          echo "${{ env.COMMON_DISPLAY_MESSAGE }} repository - ${{ vars.ACTION_ENV_VAR }}"
       - name: Display Variables - workflow, job, step
         env:
           STEP_ACTION_ENV_VAR: "Step"
         run: |
-          echo "${{ COMMON_DISPLAY_MESSAGE }} - ${{ WORKFLOW_ACTION_ENV_VAR }}"
-          echo "${{ COMMON_DISPLAY_MESSAGE }} - ${{ JOB_ACTION_ENV_VAR }}"
-          echo "${{ COMMON_DISPLAY_MESSAGE }} - ${{ STEP_ACTION_ENV_VAR }}"
+          echo "${{ env.COMMON_DISPLAY_MESSAGE }} - ${{ env.WORKFLOW_ACTION_ENV_VAR }}"
+          echo "${{ env.COMMON_DISPLAY_MESSAGE }} - ${{ env.JOB_ACTION_ENV_VAR }}"
+          echo "${{ env.COMMON_DISPLAY_MESSAGE }} - ${{ env.STEP_ACTION_ENV_VAR }}"
