@@ -33,6 +33,6 @@ jobs:
         env:
           STEP_ACTION_ENV_VAR: "Step"
         run: |
-          echo "${{ env.COMMON_DISPLAY_MESSAGE }} - ${{ env.WORKFLOW_ACTION_ENV_VAR }}"
-          echo "${{ env.COMMON_DISPLAY_MESSAGE }} - ${{ env.JOB_ACTION_ENV_VAR }}"
-          echo "${{ env.COMMON_DISPLAY_MESSAGE }} - ${{ env.STEP_ACTION_ENV_VAR }}"
+          echo "$COMMON_DISPLAY_MESSAGE - ${{ env.WORKFLOW_ACTION_ENV_VAR }}"
+          echo "$COMMON_DISPLAY_MESSAGE - ${{ env.JOB_ACTION_ENV_VAR }}"
+          echo "$COMMON_DISPLAY_MESSAGE - ${{ env.STEP_ACTION_ENV_VAR }}"
