@@ -12,13 +12,14 @@ on:
         default: false
 
 env:
-  WORKFLOW_ACTION_ENV_VAR: "Workflow env value"
+  WORKFLOW_ACTION_ENV_VAR: "Workflow"
+  COMMON_DISPLAY_MESSAGE: "Retrieving env variables from"
 
 jobs:
   display-context-information:
     runs-on: ubuntu-latest
     env:
-      JOB_ACTION_ENV_VAR: "Job env value"
+      JOB_ACTION_ENV_VAR: "Job"
     steps:
       - name: Display Info
         run: |
@@ -28,11 +29,11 @@ jobs:
           echo "Actor: ${{ github.actor }}"
       - name: Display Repository variables
         run: |
-          echo "Retrieving variables from repository env vars ${{ vars.ACTION_ENV_VAR }}"
+          echo "${{ COMMON_DISPLAY_MESSAGE }} repository - ${{ vars.ACTION_ENV_VAR }}"
       - name: Display Variables - workflow, job, step
         env:
-          STEP_ACTION_ENV_VAR: "STEP env value"
+          STEP_ACTION_ENV_VAR: "Step"
         run: |
-          echo "Retrieving variables from workflow env vars $WORKFLOW_ACTION_ENV_VAR"
-          echo "Retrieving variables from job env vars $JOB_ACTION_ENV_VAR"
-          echo "Retrieving variables from step env vars $STEP_ACTION_ENV_VAR"
+          echo "${{ COMMON_DISPLAY_MESSAGE }} - ${{ WORKFLOW_ACTION_ENV_VAR }}"
+          echo "${{ COMMON_DISPLAY_MESSAGE }} - ${{ JOB_ACTION_ENV_VAR }}"
+          echo "${{ COMMON_DISPLAY_MESSAGE }} - ${{ STEP_ACTION_ENV_VAR }}"
