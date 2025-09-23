@@ -1,6 +1,5 @@
 name: 08-workflow-variables.yml
 on:
-  push:
   workflow_dispatch:
 
 env:
