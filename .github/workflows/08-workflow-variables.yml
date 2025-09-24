@@ -5,7 +5,7 @@ on:
 env:
   WORKFLOW_VAR: 'I am a workflow env var'
   OVERWRITTEN:  'I will be overwritten'
-  UNDEFINED_VAR_DEFAULT: ${{ var.UNDEFINED_VAR_DEFAULT || 'default value' }}
+  UNDEFINED_VAR_DEFAULT: ${{ vars.UNDEFINED_VAR || 'default value' }}
 
 jobs:
   variables-job-workflow-level:
@@ -35,15 +35,15 @@ jobs:
     steps:
       - name: Print variables
         run: |
-          echo "Repository var: ${{var.REPOSITORY_VAR}}"
+          echo "Repository var: ${{vars.REPOSITORY_VAR}}"
   variables-job-prod:
     runs-on: ubuntu-latest
     environment: Production
     steps:
       - name: Print PROD variables
         run: |
-          echo "Repository var: ${{var.REPOSITORY_VAR}}"
-          echo "Target var: ${{var.TARGET_VAR}}"
+          echo "Repository var: ${{vars.REPOSITORY_VAR}}"
+          echo "Target var: ${{vars.TARGET_VAR}}"
   variables-job-undefined:
     runs-on: ubuntu-latest
     steps:
