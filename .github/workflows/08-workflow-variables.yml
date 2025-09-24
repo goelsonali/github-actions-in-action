@@ -5,7 +5,7 @@ on:
 env:
   WORKFLOW_VAR: 'I am a workflow env var'
   OVERWRITTEN:  'I will be overwritten'
-  UNDEFINED_VAR_DEFAULT: ${{ env.UNDEFINED_VAR_DEFAULT || 'default value' }}
+  UNDEFINED_VAR_DEFAULT: ${{ var.UNDEFINED_VAR_DEFAULT || 'default value' }}
 
 jobs:
   variables-job-workflow-level:
