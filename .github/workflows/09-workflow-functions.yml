@@ -17,7 +17,7 @@ jobs:
         run: |
           echo "PR labels: ${{ join(github.event.pull_request.labels.*.name, ', ') }}"
       - name: Bug step
-        if: (failure() && !cancelled() && (contains(pr_title, 'fix' )))
+        if: (failure() && !cancelled() && (contains(env.pr_title, 'fix' )))
         run: echo "I am a bug fix"
       - name: Sleep for 20 seconds
         run: bash -c "sleep 20"
