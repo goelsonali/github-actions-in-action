@@ -12,7 +12,7 @@ jobs:
       - name: Print PR title
         run: |
           echo "Which Event triggered: ${{ github.event_name}}"
-          echo "Which Event triggered: ${{ env.pr_title }}"
+          echo "PR title: ${{ env.pr_title }}"
       - name: Print PR labels
         run: |
           echo "PR labels: ${{ join(github.event.pull_request.labels.*.name, ', ') }}"
