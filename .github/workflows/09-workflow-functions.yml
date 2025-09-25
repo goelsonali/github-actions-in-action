@@ -1,12 +1,23 @@
-name: 09-workflow-functions.yml
+name: Functions in workflow
 on:
-  push:
   workflow_dispatch:
 
 jobs:
   use_functions:
     runs-on: ubuntu-latest
+    env:
+      pr_title: ${{ github.event.pull_request.title }}
     steps:
+      - name: Print PR title
+        run: |
+          echo "Which Event triggered: ${{ github.event_name}}"
+          echo "PR title: ${{ env.pr_title }}"
+      - name: Print PR labels
+        run: |
+          echo "PR labels: ${{ join(github.event.pull_request.labels.*.name, ', ') }}"
+      - name: Bug step
+        if: (failure() && !cancelled() && (contains(env.pr_title, 'fix' )))
+        run: echo "I am a bug fix"
       - name: Sleep for 20 seconds
         run: bash -c "sleep 20"
       - name: Failing step
