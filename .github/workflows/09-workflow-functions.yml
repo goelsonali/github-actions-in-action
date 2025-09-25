@@ -1,6 +1,6 @@
 name: 09-workflow-functions.yml
 on:
-  push:
+  pull_request:
   workflow_dispatch:
 
 jobs:
