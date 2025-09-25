@@ -1,0 +1,25 @@
+name: 09-workflow-functions.yml
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  use_functions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep for 20 seconds
+        run: bash -c "sleep 20"
+      - name: Failing step
+        run: echo ${{ env.undefined }}
+      - name: I will be skipped
+        if: ${{ success() }}
+        run: echo "This step will be skipped because the previous step failed"
+      - name: I will execute
+        if: ${{ failure() }}
+        run: echo "This step will execute because the previous step failed"
+      - name: I will execute
+        if: ${{ !cancelled() }}
+        run: echo "I will always print, except when the workflow is cancelled."
+      - name: I will execute when cancelled
+        if: ${{ cancelled() }}
+        run: echo "I will print only when the workflow is cancelled."
