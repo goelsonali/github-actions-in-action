@@ -1,6 +1,5 @@
 name: Working with inputs
 on:
-  pull_request:
   workflow_dispatch:
     inputs:
       dry-run:
