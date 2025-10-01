@@ -1,6 +1,5 @@
 name: Workflow with outputs
 on:
-  pull_request:
   workflow_dispatch:
     inputs:
       build-status:
