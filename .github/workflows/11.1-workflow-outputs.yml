@@ -1,4 +1,4 @@
-name: 11.1-workflow-outputs.yml
+name: Workflow with outputs
 on:
   pull_request:
   workflow_dispatch:
