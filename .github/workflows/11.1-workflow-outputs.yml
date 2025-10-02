@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Print GITHUB_OUTPUT path
         run: |
-          echo "GITHUB_OUTPUT is located at $GITHUB_OUTPUT"
+          echo "$GITHUB_OUTPUT"
       - name: Build
         id: build
         run: |
