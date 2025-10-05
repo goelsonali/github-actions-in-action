@@ -1,6 +1,5 @@
 name: Cache workflows
 on:
-  push:
   workflow_dispatch:
     inputs:
       cache-key:
