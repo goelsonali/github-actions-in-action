@@ -45,16 +45,6 @@ jobs:
       - name: Install dependencies
         if: steps.cache-deps.outputs.cache-hit != 'true'
         run: npm ci
-      - name: Download cached dependencies
-        uses: actions/cache@v3
-        id: cache-deps
-        if: ${{ inputs.cache-key}}
-        with:
-          path: react-app/node_modules
-          key: deps-node-modules-${{ build.steps.cache_key.outputs.cache_key  }}
-      - name: Install dependencies
-        if: steps.cache-deps.outputs.cache-hit != 'true'
-        run: npm ci
 
   build:
     runs-on: ubuntu-latest
