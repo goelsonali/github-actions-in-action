@@ -1,0 +1,22 @@
+name: Metrics Workflow
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  backwards-compatibility:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+        os:
+            - ubuntu-latest
+            - windows-latest
+    steps:
+      - name: Setup node
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Perform some tests
+        run: |
+          echo "Running tests on Node.js version ${{ matrix.node-version }} on OS ${{ matrix.os }}"
