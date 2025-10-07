@@ -1,6 +1,5 @@
 name: Metrics Workflow
 on:
-  push:
   workflow_dispatch:
 
 jobs:
