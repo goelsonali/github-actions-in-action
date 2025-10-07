@@ -1,0 +1,27 @@
+name: Metrics Workflow
+on:
+  workflow_dispatch:
+
+jobs:
+  backwards-compatibility:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [18.x, 20.x]
+        os:
+          - ubuntu-latest
+          - windows-latest
+        include:
+          - os: ubuntu-latest
+            node-version: 18.x
+            tag: experimental
+    steps:
+      - name: Setup node
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Perform some tests
+        if: ${{ matrix.tag == 'experimental' }}
+        run: |
+          echo "Running tests on Node.js version ${{ matrix.node-version }} on OS ${{ matrix.os }}"

@@ -1,6 +1,5 @@
 name: Cache Multi-Job Workflows
 on:
-  push:
   workflow_dispatch:
     inputs:
       cache-key:
