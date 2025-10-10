@@ -25,3 +25,25 @@ jobs:
         if: ${{ matrix.tag == 'experimental' }}
         run: |
           echo "Running tests on Node.js version ${{ matrix.node-version }} on OS ${{ matrix.os }}"
+
+  include-example:
+    runs-on: ubuntu-latest
+    name: ${{ matrix.colour}}-${{ matrix.colour}}-${{ matrix.colour}}-${{ matrix.opacity }}
+    strategy:
+      matrix:
+        colour: ['red','green']
+        shape: ['square','circle']
+        size: ['small','large']
+        include:
+          - colour: red
+            opacity: 75
+          - shape: circle
+            opacity: 100
+          - opacity: 50
+          - colour: red
+            shape: triangle
+    steps:
+      - name: Dummy step
+        run: |
+          echo "Printing colour: ${{ matrix.colour }}, shape: ${{ matrix.shape }}, size: ${{ matrix.size }}"
+
