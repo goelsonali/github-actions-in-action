@@ -43,10 +43,10 @@ jobs:
           - colour: red
             shape: triangle
             size: small
-        exclude:
+        exclude: # partial match will not exclude the job run
           - colour: red
             shape: triangle
-            size: large
+            size: small
     steps:
       - name: Dummy step
         run: |
