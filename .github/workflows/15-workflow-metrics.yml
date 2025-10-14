@@ -46,7 +46,6 @@ jobs:
         exclude: # partial match will not exclude the job run
           - colour: red
             shape: triangle
-            size: small
     steps:
       - name: Dummy step
         run: |
