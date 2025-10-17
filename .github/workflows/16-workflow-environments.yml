@@ -1,0 +1,23 @@
+name: Environment Deployment Workflow
+on:
+  workflow_dispatch:
+    run-name: Working with Environments | env - ${{ vars.target-env }}
+    inputs:
+      target-env:
+        description: 'Select the target environment for deployment'
+        type: environment
+        required: true
+        default: staging
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.target-env }}
+    steps:
+      - name: Display Target Environment
+        run: |
+          echo "Deploying to environment: ${{ inputs.target-env }}"
+          echo "Environment URL: ${{ env.ENV_URL }}"
+          echo "Environment Secrets: ${{ env.ENV_SECRET }}"
+
+
