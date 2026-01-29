@@ -41,8 +41,6 @@ jobs:
             opacity: 100
           - opacity: 50
           - colour: red
-            shape: circle
-            size: small
         exclude: # partial match will not exclude the job run
           - colour: red
             shape: circle
