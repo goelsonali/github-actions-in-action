@@ -28,10 +28,10 @@ jobs:
 
   include-example:
     runs-on: ubuntu-latest
-    name: ${{ matrix.colour}}-${{ matrix.colour}}-${{ matrix.colour}}-${{ matrix.opacity }}
+    name: ${{ matrix.colour}}-${{ matrix.shape}}-${{ matrix.size}}-${{ matrix.opacity }}
     strategy:
       matrix:
-        colour: ['red','green']
+        colour: ['red']
         shape: ['square','circle']
         size: ['small','large']
         include:
@@ -41,7 +41,10 @@ jobs:
             opacity: 100
           - opacity: 50
           - colour: red
-            shape: triangle
+        exclude: # partial match will not exclude the job run
+          - colour: red
+            shape: circle
+            size: small
     steps:
       - name: Dummy step
         run: |
